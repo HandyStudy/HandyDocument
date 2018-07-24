@@ -10,11 +10,11 @@
 
    说点什么 <hello>
    通过本书学会什么 <目标>
-   随处可写-随处可用，跨平台的优美文档 <restructuredtext>
-   永不后悔：所有修改自成版本-随用随取 <git>
-   永不丢失：随手可写-随处可用-随意分享 <github>
-   文档网站：同步自动生成-多格式导出 <readthedocs>
-   私有文档服务：本机服务：生成导出 <sphinx>
+   写跨平台的优美文档 <restructuredtext>
+   如何进行文档的版本控制？ <git>
+   如何使用互联网版本托管？ <github>
+   如何自动生成文档网站？ <readthedocs>
+   本机私有文档怎么做？ <sphinx>
 
 
 
