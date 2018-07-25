@@ -718,7 +718,7 @@ https://handydocument.readthedocs.io
 
 更多信息，请参考 `reStructuredText <rstindex>`_。
 
-:ref:`rstindex`
+:ref:`reStructuredText <rstindex>`
 
 
 
