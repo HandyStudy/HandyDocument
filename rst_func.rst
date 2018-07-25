@@ -18,6 +18,7 @@ reStructuredText常用语法1
 **显示**
  **粗体**
 
+
 斜体显示
 >>>>>>>>
 
@@ -32,6 +33,7 @@ reStructuredText常用语法1
 **显示**
  *斜体*
 
+
 等宽文本
 >>>>>>>>
 
@@ -42,12 +44,12 @@ reStructuredText常用语法1
 ::
   ``等宽文本，hello world！``
 
-
 **显示信息**
 
-``等宽文本，hello world！``
+ ``等宽文本，hello world！``
 
-解读文本（Interpreted Text）
+
+解读文本
 >>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 规则
@@ -60,7 +62,30 @@ reStructuredText常用语法1
 
 **显示信息**
 
-这是解读文本： `解读文本，Interpreted Text`
+ 这是解读文本： `解读文本，Interpreted Text`
+
+
+
+上下标
+>>>>>>
+
+规则
+  有时要进行数学/化学的表示,在 html 中就需要上/下标( <sub> , <sup>) 的表达, rST 中当然也有:  
+
+**原文本**
+::
+
+  H\ :sub:`2`\ O
+
+  E = mc\ :sup:`2`
+
+**显示信息**
+
+ H\ :sub:`2`\ O
+
+ E = mc\ :sup:`2`
+
+
 
 换行
 >>>>>>>>
@@ -375,24 +400,56 @@ reStructuredText常用语法1
 文字块(Literal Blocks)
 >>>>>>>>>>>>>>>>>>>>>>
 
-文字块就是一段文字信息，在需要插入文本块的段落后面加上 ::，接着一个空行，然后就是文字块了。
+规则：
+  * 文字块就是一段文字信息，原文本是什么，就输出什么。
+  * 在段落末尾加上 ::，接着一个空行，然后写文字块。
+  * 也可以在一个空行上添加::, 接着一个空行，然后写文字块，这个双冒号行将被忽略。
+  * 文字块不能顶头写，要有缩进，到没有缩进的行为止。
+  * 常用来输出程序代码、格式原文本等。
 
-文字块不能顶头写，要有缩进，结束标志是，新的一段文本贴开头，即没有缩进。
-
-示范：
+**示范1：reStructuredText原文本和显示对照输出**
 
 **原文本**
 ::
 
-   这是一段文字块
-   同样也是文字块
-   还是文字块
+   这是reStructuredText的符号列表：
+
+      * 列表项目1
+      * 列表项目2
+      * 列表项目3
+
+   这是reStructuredText的顺序列表：
+
+      #. 列表项目1
+      #. 列表项目2
+      #. 列表项目3
 
 **显示信息**
 
-   这是一段文字块
-   同样也是文字块
-   还是文字块
+   这是reStructuredText的符号列表：
+
+      * 列表项目1
+      * 列表项目2
+      * 列表项目3
+
+   这是reStructuredText的顺序列表：
+
+      #. 列表项目1
+      #. 列表项目2
+      #. 列表项目3
+
+**示范2：输出程序代码**
+
+如果数据库有问题, 执行下面的 SQL::
+
+ # Dumping data for table `item_table`
+
+ INSERT INTO item_table VALUES (
+   0000000001, 0, 'Manual', '', '0.18.0',
+   'This is the manual for Mantis version 0.18.0.\r\n\r\nThe Mantis manual is modeled after the [url=http://www.php.net/manual/en/]PHP Manual[/url]. It is authored via the \\"manual\\" module in Mantis CVS.  You can always view/download the latest version of this manual from [url=http://mantisbt.sourceforge.net/manual/]here[/url].',
+   '', 1, 1, 20030811192655);
+
+
 
 行块(Line Blocks)
 >>>>>>>>>>>>>>>>>>
@@ -488,6 +545,33 @@ reStructuredText常用语法1
 
 >>> print "This is a doctest block."
 This is a doctest block.
+
+程序块(Doctest Blocks)
+---------------------------
+规则
+>>>>>
+  可以 用 .. code-block:: 追加各种语法高亮声明:
+
+示范
+>>>>>
+
+**原文本**
+::
+    .. code-block:: python
+        :linenos:
+
+        def foo():
+            print "Love Python, Love FreeDome"
+            print "E文标点,.0123456789,中文标点,. "
+
+**显示信息**
+
+.. code-block:: python
+    :linenos:
+
+    def foo():
+        print("Love Python, Love FreeDome")
+        print("E文标点,.0123456789,中文标点,. ")
 
 
 表格(Tables)
@@ -792,6 +876,10 @@ __ HandyStudy_
  .. |logo| image:: https://help.github.com/assets/images/site/favicon.ico
  .. |name| replace:: HandyStudy
 
+ 这是一个本地图片 |test_pic|
+
+ .. |logo1| image:: _static/test_pic.jpg
+
 **显示信息**
 
 这是 |logo| github的Logo，我的github用户名是:|name|。
@@ -799,12 +887,11 @@ __ HandyStudy_
 .. |logo| image:: https://help.github.com/assets/images/site/favicon.ico
 .. |name| replace:: HandyStudy
 
-.. _fig_0601:
-.. figure:: _static/test_pic.jpg
+这是一个本地图片 |test_pic|
 
-   插图 6-1 神奇的2
+.. |test_pic| image:: _static/test_pic.jpg
 
-可以在任意地方使用 |插图 6-1 神奇的2| 来指代
+
 
 脚注引用(Footnote Reference)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -859,7 +946,6 @@ __ HandyStudy_
 .. [*] 脚注内容六
 .. [*] 脚注内容七
 
-|插图 6-1 神奇的2|
 
 引用参考(Citation Reference)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
