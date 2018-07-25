@@ -4,8 +4,11 @@ reStructuredText常用语法1
 行内样式
 --------
 
-粗体显示（左右两边各加两个*号）
->>>>>>>>>>>>>>>>>>>>>>>>>>
+粗体显示
+>>>>>>>>
+
+规则
+  左右两边各加两个*号，*号和文本之间不要留空格
 
 **原文本**
 ::
@@ -15,8 +18,11 @@ reStructuredText常用语法1
 **显示**
  **粗体**
 
-斜体显示（左右两边加*号）
->>>>>>>>>>>>>>>>>>>>>>>
+斜体显示
+>>>>>>>>
+
+规则
+  左右两边加*号，*号和文本之间不要留空格
 
 **原文本** 
 ::
@@ -26,18 +32,57 @@ reStructuredText常用语法1
 **显示**
  *斜体*
 
+等宽文本
+>>>>>>>>
 
-等宽文本（左右两边各加两个'号）
->>>>>>>>>>>>>>>>>>>>>>>>>>
-''等宽文本''
+规则
+  左右两边各加两个``号
+
+**原文本**
+::
+  ``等宽文本，hello world！``
+
+
+**显示信息**
+
+``等宽文本，hello world！``
+
+解读文本（Interpreted Text）
+>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+规则
+  用`   `把文本引用起来即可。  
+
+**原文本**
+::
+
+  这是解读文本： `解读文本，Interpreted Text`
+
+**显示信息**
+
+这是解读文本： `解读文本，Interpreted Text`
 
 换行
 >>>>>>>>
 
-行内文本如果要强制换一行显示，加一个空行即可。
-这是一段换行对齐继续写的文字，但前面没有加空行，故而会连续显示。
+规则
+  行内文本如果要强制换一行显示，加一个空行即可。
 
-本行前面加了一个空行，会强制换行显示。
+**原文本**
+::
+
+  这是一段换行对齐继续写的文字，
+  但前面没有加空行，故而会连续显示。
+
+  本行前面加了一个空行，会强制换行显示。
+
+**显示信息**
+
+ 这是一段换行对齐继续写的文字，
+ 但前面没有加空行，故而会连续显示。
+
+ 本行前面加了一个空行，会强制换行显示。
+
 
 分隔符
 -------
@@ -60,8 +105,12 @@ reStructuredText常用语法1
 
 注释(Comments)
 ---------------
- 注释以 .. 开头，后面接注释内容即可，可以是多行内容，多行时每行开头要加一个空格。
+规则
+>>>>>
+  注释以 .. 开头，后面接注释内容即可，可以是多行内容，多行时每行开头要加一个空格。
 
+示范
+>>>>>
 **原文本**
 ::
 
@@ -169,7 +218,7 @@ reStructuredText常用语法1
    #. 不同层级之间、或者相同层级，可以混用符号
 
 
-示范1
+示范
 >>>>>
 
 **原文本**
@@ -213,39 +262,6 @@ reStructuredText常用语法1
    * 一级列表C
 
 
-示范2
->>>>>
-
-**原文本**
-::
-
-    * 一级列表A
-     + 二级列表A1
-     + 二级列表A2
-    * 一级列表B
-     + 二级列表B1
-     + 二级列表B2
-      - 三级列表B21
-       * 四级列表B211
-       * 四级列表B212
-      - 三级列表B22
-     + 二级列表B3
-    * 一级列表C
-
-**显示信息**
-
-* 一级列表A
- + 二级列表A1
- + 二级列表A2
-* 一级列表B
- + 二级列表B1
- + 二级列表B2
-  - 三级列表B21
-   * 四级列表B211
-   * 四级列表B212
-  - 三级列表B22
- + 二级列表B3
-* 一级列表C
 
 顺序列表
 --------
@@ -552,6 +568,93 @@ False      True      True
 True       True      True
 ========  ========  =========
 
+CSV表格
+>>>>>>>
+
+规则
+  * 以.. csv-table:: 开头，后面跟表格标题。
+  * 以:header: 定义表头的内容和个数。
+  * 以:widths: 定义每列的宽度
+  * 空一行之后，每行的数据用逗号,分隔 
+
+
+**原文本**
+::
+
+    .. csv-table:: 我的CSV表格
+    :header: "Treat", "Quantity", "Description"
+    :widths: 15, 10, 30
+
+    "Albatross", 2.99, "On a stick!"
+    "Crunchy Frog", 1.49, "If we took the bones out, it wouldn't be
+    crunchy, now would it?"
+    "Gannet Ripple", 1.99, "On a stick!"
+
+**显示信息**
+
+.. csv-table:: 我的CSV表格
+ :header: "Treat", "Quantity", "Description"
+ :widths: 15, 10, 30
+
+ "Albatross", 2.99, "On a stick!"
+ "Crunchy Frog", 1.49, "If we took the bones out, it wouldn't be
+ crunchy, now would it?"
+ "Gannet Ripple", 1.99, "On a stick!"
+
+
+列表表格
+>>>>>>>>>
+
+规则
+  * 以.. list-table::开头，后面跟表格标题。
+  * 以:widths: 定义每列的宽度
+  * 以:header-rows: 定义表头的开始行
+  * 空一行之后，每行的数据用一个列表显示 
+
+
+**原文本**
+::
+
+    .. list-table:: 列表表格
+      :widths: 15 10 30
+      :header-rows: 1
+
+      * - Treat
+        - Quantity
+        - Description
+      * - Albatross
+        - 2.99
+        - On a stick!
+      * - Crunchy Frog
+        - 1.49
+        - If we took the bones out, it wouldn't be
+        crunchy, now would it?
+      * - Gannet Ripple
+        - 1.99
+        - On a stick!
+
+**显示信息**
+
+.. list-table:: 列表表格
+  :widths: 15 10 30
+  :header-rows: 1
+
+  * - Treat
+    - Quantity
+    - Description
+  * - Albatross
+    - 2.99
+    - On a stick!
+  * - Crunchy Frog
+    - 1.49
+    - If we took the bones out, it wouldn't be
+      crunchy, now would it?
+  * - Gannet Ripple
+    - 1.99
+    - On a stick!
+
+
+
 超链接
 ------
 
@@ -560,6 +663,8 @@ True       True      True
   reStructuredText会自动将网址生成超链接。
 
 https://handydocument.readthedocs.io
+
+
 
 外部超链接(External Hyperlink)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -588,21 +693,33 @@ https://handydocument.readthedocs.io
 这篇文章来自我的ReadTheDocs,请参考 `HandyDocument <https://HandyDocument.readthedocs.io/>`_。
 
 
+
 内部超链接|锚点(Internal Hyperlink)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+规则
+  * 在每个文档的不同位置，加入一些锚点
+  * 格式如下：.. _你的锚点名称:
+  * 在其它任意文本中，随时可以使用:ref:`超链接显示信息 <你的锚点名称>`跳转到这个文档的这个位置
 
 **原文本**
 ::
 
  更多信息参考 引用文档_
 
-  .. _引用文档:
+ .. _引用文档:
+
+ 更多信息，请参考 `reStructuredText <rstindex>`_。
 
 **显示信息**
 
 更多信息参考 引用文档_
 
 .. _引用文档:
+
+更多信息，请参考 `reStructuredText <rstindex>`_。
+
+:ref:`rstindex`
+
 
 
 匿名超链接(Anonymous hyperlink)
@@ -621,6 +738,7 @@ https://handydocument.readthedocs.io
 这篇文章参考的是：`Quick reStructuredText`__。
 
 .. __: http://handydocument.readthedocs.io
+
 
 
 间接超链接(Indirect Hyperlink)
@@ -645,6 +763,7 @@ HandyStudy_ 是 `我的 GitHub 用户名`__。
 __ HandyStudy_
 
 
+
 隐式超链接(Implicit Hyperlink)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
  小节标题、脚注和引用参考会自动生成超链接地址，使用小节标题、脚注或引用参考名称作为超链接名称就可以生成隐式链接。
@@ -661,6 +780,7 @@ __ HandyStudy_
 `行内样式`_，即可生成到行内样式那一节的超链接。
 
 `分隔符`_，即可生成到分隔符那一节的超链接。
+
 
 
 替换引用(Substitution Reference)
@@ -762,9 +882,11 @@ __ HandyStudy_
 
 
 
-章节标题
+章节标题(2级标题)
 --------
-  规则
+
+规则(3级标题)
+>>>>>
 
   #. 标题用上标和下标符号表示，最多分六级
   #. 小标符号长度不得小于标题长度
@@ -773,13 +895,18 @@ __ HandyStudy_
   #. 符号既可以上标，也可以下标，相同符号，上标比下标高一级
   #. 章节标题是否显示数字需要，在主题树(toctree)中使用:numbered:表示，:numbered:3 表示3级章节标题显示数字序号。
 
+样例(3级标题)
+>>>>>
 
-一级标题（示范）
-==============
-二级标题（示范）
---------------
-三级标题（示范）
->>>>>>>>>>>>>>>
+::
+
+    四级标题（示范）
+    +++++++++++++++
+    五级标题（示范）
+    :::::::::::::::
+    六级标题（示范）
+    ~~~~~~~~~~~~~~
+
 四级标题（示范）
 +++++++++++++++
 五级标题（示范）
