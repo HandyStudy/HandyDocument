@@ -4,7 +4,7 @@
 
 .. toctree::
    :maxdepth: 2
-   :numbered: 2
+   :numbered: 3
 
    如何随时随手写出优美的文档？ <rst_select>
    reStructuredText是什么？ <rst_who>
