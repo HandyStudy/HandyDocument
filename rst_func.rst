@@ -718,11 +718,6 @@ https://handydocument.readthedocs.io
 
 更多信息，请参考 `reStructuredText <rstindex>`_。
 
-更多信息，请参考 rstindex_
-
-:ref:`reStructuredText <rstindex>`
-
-
 
 匿名超链接(Anonymous hyperlink)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -804,7 +799,12 @@ __ HandyStudy_
 .. |logo| image:: https://help.github.com/assets/images/site/favicon.ico
 .. |name| replace:: HandyStudy
 
+.. _fig_0601:
+.. figure:: _static/test_pic.jpg
 
+   插图 6-1 神奇的2
+
+可以在任意地方使用 |插图 6-1 神奇的2| 来指代
 
 脚注引用(Footnote Reference)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -859,7 +859,7 @@ __ HandyStudy_
 .. [*] 脚注内容六
 .. [*] 脚注内容七
 
-
+|插图 6-1 神奇的2|
 
 引用参考(Citation Reference)
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
