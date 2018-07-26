@@ -71,10 +71,21 @@ pygments_style = 'sphinx'
 
 # -- Options for HTML output -------------------------------------------------
 
+# import Cloud
+import cloud_sptheme as csp
+# set the html theme
+html_theme = "cloud"
+    # NOTE: there is also a red-colored version named "redcloud"
+# set the theme path to point to cloud's theme data
+html_theme_path = [csp.get_theme_dir()]
+
+# [optional] set some of the options listed above...
+html_theme_options = { "roottarget": "index" }
+
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 # html_theme = 'alabaster'
-html_theme = 'sphinx_rtd_theme'
+# html_theme = 'sphinx_rtd_theme'
 # html_theme = 'sphinx-bootstrap-theme'
 # html_theme = "cloud"
 
