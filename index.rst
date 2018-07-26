@@ -10,11 +10,11 @@
 
    说点什么 <hello>
    通过本书学会什么 <目标>
-   写跨平台的优美文档 <rst>
-   如何进行文档的版本控制？ <git>
-   如何使用互联网版本托管？ <github>
-   如何自动生成文档网站？ <readthedocs>
-   本机私有文档导出多个格式 <sphinx>
+   用reStructuredText写文档 <rst>
+   用Git进行文档版本控制 <git>
+   用GitHub进行互联网版本托管 <github>
+   用ReadTheDocs生成文档网站 <readthedocs>
+   用Sphinx创建优雅的文档 <sphinx>
 
 
 
