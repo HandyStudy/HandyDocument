@@ -3,3 +3,5 @@
 #
 ###### Requirements without Version Specifiers ######
 cloud_sptheme
+
+# add theme
